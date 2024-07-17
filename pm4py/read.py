@@ -16,6 +16,7 @@
 '''
 from typing import Tuple, Dict, Optional
 
+from pm4py.objects.iot.obj import IOTEventLog
 from pm4py.objects.bpmn.obj import BPMN
 from pm4py.objects.log.obj import EventLog
 from pm4py.objects.ocel.obj import OCEL
@@ -105,6 +106,17 @@ def read_yaml(
 
     return log
 
+def read_iot_xes(file_path: str, encoding: str = constants.DEFAULT_ENCODING, **kwargs) -> IOTEventLog:
+    if not os.path.exists(file_path):
+        raise Exception("File does not exist")
+    from pm4py.objects.iot.importer.xes import importer as iot_xes_importer
+    from copy import copy
+    parameters = copy(kwargs)
+    parameters["encoding"] = encoding
+    log = iot_xes_importer.apply(file_path, parameters=parameters)
+    return log
+
+
 def read_xes(file_path: str, variant: Optional[str] = None, return_legacy_log_object: bool = constants.DEFAULT_READ_XES_LEGACY_OBJECT, encoding: str = constants.DEFAULT_ENCODING, **kwargs) -> Union[DataFrame, EventLog]:
     """
     Reads an event log stored in XES format (see `xes-standard <https://xes-standard.org/>`_)
@@ -163,7 +175,7 @@ def read_pnml(file_path: str, auto_guess_final_marking: bool = False, encoding: 
     """
     Reads a Petri net object from a .pnml file.
     The Petri net object returned is a triple containing the following objects:
-    
+
     1. Petrinet Object, encoded as a ``PetriNet`` class
     #. Initial Marking
     #. Final Marking
@@ -210,7 +222,7 @@ def read_dfg(file_path: str, encoding: str = constants.DEFAULT_ENCODING) -> Tupl
     """
     Reads a DFG object from a .dfg file.
     The DFG object returned is a triple containing the following objects:
-    
+
     1. DFG Object, encoded as a ``Dict[Tuple[str,str],int]``, s.t. ``DFG[('a','b')]=k`` implies that activity ``'a'`` is directly followed by activity ``'b'`` a total of ``k`` times in the log
     #. Start activity dictionary, encoded as a ``Dict[str,int]``, s.t., ``S['a']=k`` implies that activity ``'a'`` is starting ``k`` traces in the event log
     #. End activity dictionary, encoded as a ``Dict[str,int]``, s.t., ``E['z']=k`` implies that activity ``'z'`` is ending ``k`` traces in the event log.
@@ -394,7 +406,6 @@ def read_ocel2(file_path: str, encoding: str = constants.DEFAULT_ENCODING) -> OC
         return read_ocel2_xml(file_path, encoding=encoding)
     elif file_path.lower().endswith("json") or file_path.lower().endswith("jsonocel"):
         return read_ocel2_json(file_path, encoding=encoding)
-
 
 def read_ocel2_json(file_path: str, encoding: str = constants.DEFAULT_ENCODING) -> OCEL:
     """
