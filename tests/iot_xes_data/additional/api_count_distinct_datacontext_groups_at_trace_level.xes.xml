@@ -1,0 +1,249 @@
+<?xml version="1.0"?>
+<log xmlns="http://www.xes-standard.org/" xes.version="2.0" xes.features="nested-attributes">
+  <string key="creator" value="cpee.org"/>
+  <extension name="Time" prefix="time" uri="http://www.xes-standard.org/time.xesext"/>
+  <extension name="Concept" prefix="concept" uri="http://www.xes-standard.org/concept.xesext"/>
+  <extension name="ID" prefix="id" uri="http://www.xes-standard.org/identity.xesext"/>
+  <extension name="Lifecycle" prefix="lifecycle" uri="http://www.xes-standard.org/lifecycle.xesext"/>
+  <extension name="CPEE" prefix="cpee" uri="http://cpee.org/cpee.xesext"/>
+  <extension name="stream" prefix="stream" uri="https://cpee.org/datastream/datastream.xesext"/>
+  <global scope="trace">
+    <string key="concept:name" value="__INVALID__"/>
+    <string key="cpee:name" value="__INVALID__"/>
+  </global>
+  <global scope="event">
+    <string key="concept:name" value="__INVALID__"/>
+    <string key="concept:instance" value="-1"/>
+    <string key="concept:endpoint" value=""/>
+    <string key="id:id" value=""/>
+    <string key="lifecycle:transition" value="complete"/>
+    <string key="cpee:lifecycle:transition" value="activity/calling"/>
+    <date key="time:timestamp" value=""/>
+  </global>
+  <trace>
+    <string key="concept:name" value="5671"/>
+    <string key="cpee:name" value="IRB2600 Door to Portal"/>
+    <string key="cpee:instance" value="0a7ab0ad-a8cd-47df-9625-7ea71e27ff98"/>
+    <list key="stream:datacontext">
+        <list key="stream:datacontext">
+            <list key="stream:datastream">
+                <string key="stream:name" value="name_in_datacontext"/>
+                <string key="stream:source" value="source_in_datacontext"/>
+                <list key="stream:point">
+                    <string key="stream:id" value="ptrid"/>
+                    <string key="stream:value" value="noneval"/>
+                    <date key="stream:timestamp" value="2023-04-28T17:18:31.8995662+02:00"/>
+                </list>
+            </list>
+        </list>
+        <list key="stream:datastream">
+        <string key="stream:name" value="name_in_datacontext"/>
+        <string key="stream:source" value="source_in_datacontext"/>
+        <string key="stream:point">
+            <string key="stream:id" value="Task.ExecutionType"/>
+            <string key="stream:value" value="None"/>
+            <date key="stream:timestamp" value="2023-04-28T17:18:31.8995662+02:00"/>
+            <string key="stream:source" value="IRB2600"/>
+            <string key="stream:meta">
+                <string key="type" value="ABB.Robotics.Controllers.RapidDomain.ExecutionType"/>
+                <list key="enumeration">
+                    <string key="None" value="None"/>
+                    <string key="Normal" value="Normal"/>
+                    <string key="Interrupt" value="Interrupt"/>
+                    <string key="ExternalInterrupt" value="ExternalInterrupt"/>
+                    <string key="UserRoutine" value="UserRoutine"/>
+                    <string key="EventRoutine" value="EventRoutine"/>
+                </list>
+            </string>
+        </string>
+        </list>
+    </list>
+    <list key="stream:datastream">
+      <string key="stream:name" value="IRB2600"/>
+      <string key="stream:source" value="IRB2600"/>
+      <string key="stream:point">
+        <string key="stream:id" value="Task.ExecutionType"/>
+        <string key="stream:value" value="None"/>
+        <date key="stream:timestamp" value="2023-04-28T17:18:31.8995662+02:00"/>
+        <string key="stream:source" value="IRB2600"/>
+        <string key="stream:meta">
+          <string key="type" value="ABB.Robotics.Controllers.RapidDomain.ExecutionType"/>
+          <list key="enumeration">
+            <string key="None" value="None"/>
+            <string key="Normal" value="Normal"/>
+            <string key="Interrupt" value="Interrupt"/>
+            <string key="ExternalInterrupt" value="ExternalInterrupt"/>
+            <string key="UserRoutine" value="UserRoutine"/>
+            <string key="EventRoutine" value="EventRoutine"/>
+          </list>
+        </string>
+      </string>
+    </list>
+  </trace>
+  <trace>
+    <string key="concept:name" value="5671"/>
+    <string key="cpee:name" value="IRB2600 Door to Portal"/>
+    <string key="cpee:instance" value="0a7ab0ad-a8cd-47df-9625-7ea71e27ff98"/>
+    <list key="stream:datacontext">
+        <list key="stream:datacontext">
+            <list key="stream:datastream">
+                <string key="stream:name" value="name_in_datacontext"/>
+                <string key="stream:source" value="source_in_datacontext"/>
+                <list key="stream:point">
+                    <string key="stream:id" value="ptrid"/>
+                    <string key="stream:value" value="noneval"/>
+                    <date key="stream:timestamp" value="2023-04-28T17:18:31.8995662+02:00"/>
+                </list>
+            </list>
+        </list>
+        <list key="stream:datacontext">
+            <list key="stream:datacontext">
+                <list key="stream:datastream">
+                    <string key="stream:name" value="name_in_datacontext"/>
+                    <string key="stream:source" value="source_in_datacontext"/>
+                    <list key="stream:point">
+                        <string key="stream:id" value="ptrid"/>
+                        <string key="stream:value" value="noneval"/>
+                        <date key="stream:timestamp" value="2023-04-28T17:18:31.8995662+02:00"/>
+                    </list>
+                </list>
+            </list>
+            <list key="stream:datastream">
+                <string key="stream:name" value="name_in_datacontext"/>
+                <string key="stream:source" value="source_in_datacontext"/>
+                <list key="stream:point">
+                    <string key="stream:id" value="ptrid"/>
+                    <string key="stream:value" value="noneval"/>
+                    <date key="stream:timestamp" value="2023-04-28T17:18:31.8995662+02:00"/>
+                </list>
+            </list>
+        </list>
+        <list key="stream:datastream">
+        <string key="stream:name" value="name_in_datacontext"/>
+        <string key="stream:source" value="source_in_datacontext"/>
+        <string key="stream:point">
+            <string key="stream:id" value="Task.ExecutionType"/>
+            <string key="stream:value" value="None"/>
+            <date key="stream:timestamp" value="2023-04-28T17:18:31.8995662+02:00"/>
+            <string key="stream:source" value="IRB2600"/>
+            <string key="stream:meta">
+                <string key="type" value="ABB.Robotics.Controllers.RapidDomain.ExecutionType"/>
+                <list key="enumeration">
+                    <string key="None" value="None"/>
+                    <string key="Normal" value="Normal"/>
+                    <string key="Interrupt" value="Interrupt"/>
+                    <string key="ExternalInterrupt" value="ExternalInterrupt"/>
+                    <string key="UserRoutine" value="UserRoutine"/>
+                    <string key="EventRoutine" value="EventRoutine"/>
+                </list>
+            </string>
+        </string>
+        </list>
+    </list>
+  </trace>
+  <trace>
+    <string key="concept:name" value="5671"/>
+    <string key="cpee:name" value="IRB2600 Door to Portal"/>
+    <string key="cpee:instance" value="0a7ab0ad-a8cd-47df-9625-7ea71e27ff98"/>
+    <list key="stream:datacontext">
+        <list key="stream:datacontext">
+            <list key="stream:datastream">
+                <string key="stream:name" value="name_in_datacontext"/>
+                <string key="stream:source" value="source_in_datacontext"/>
+                <list key="stream:point">
+                    <string key="stream:id" value="ptrid"/>
+                    <string key="stream:value" value="noneval"/>
+                    <date key="stream:timestamp" value="2023-04-28T17:18:31.8995662+02:00"/>
+                </list>
+            </list>
+        </list>
+        <list key="stream:datacontext">
+            <list key="stream:datacontext">
+                <list key="stream:datastream">
+                    <string key="stream:name" value="name_in_datacontext"/>
+                    <string key="stream:source" value="source_in_datacontext"/>
+                    <list key="stream:point">
+                        <string key="stream:id" value="ptrid"/>
+                        <string key="stream:value" value="noneval"/>
+                        <date key="stream:timestamp" value="2023-04-28T17:18:31.8995662+02:00"/>
+                    </list>
+                </list>
+            </list>
+            <list key="stream:datastream">
+                <string key="stream:name" value="name_in_datacontext"/>
+                <string key="stream:source" value="source_in_datacontext"/>
+                <list key="stream:point">
+                    <string key="stream:id" value="ptrid"/>
+                    <string key="stream:value" value="noneval"/>
+                    <date key="stream:timestamp" value="2023-04-28T17:18:31.8995662+02:00"/>
+                </list>
+            </list>
+        </list>
+        <list key="stream:datacontext">
+            <list key="stream:datacontext">
+                <list key="stream:datastream">
+                    <string key="stream:name" value="name_in_datacontext"/>
+                    <string key="stream:source" value="source_in_datacontext"/>
+                    <list key="stream:point">
+                        <string key="stream:id" value="ptrid"/>
+                        <string key="stream:value" value="noneval"/>
+                        <date key="stream:timestamp" value="2023-04-28T17:18:31.8995662+02:00"/>
+                    </list>
+                </list>
+            </list>
+            <list key="stream:datacontext">
+                <list key="stream:datacontext">
+                    <list key="stream:datastream">
+                        <string key="stream:name" value="name_in_datacontext"/>
+                        <string key="stream:source" value="source_in_datacontext"/>
+                        <list key="stream:point">
+                            <string key="stream:id" value="ptrid"/>
+                            <string key="stream:value" value="noneval"/>
+                            <date key="stream:timestamp" value="2023-04-28T17:18:31.8995662+02:00"/>
+                        </list>
+                    </list>
+                </list>
+                <list key="stream:datastream">
+                    <string key="stream:name" value="name_in_datacontext"/>
+                    <string key="stream:source" value="source_in_datacontext"/>
+                    <list key="stream:point">
+                        <string key="stream:id" value="ptrid"/>
+                        <string key="stream:value" value="noneval"/>
+                        <date key="stream:timestamp" value="2023-04-28T17:18:31.8995662+02:00"/>
+                    </list>
+                </list>
+            </list>
+            <list key="stream:datastream">
+                <string key="stream:name" value="name_in_datacontext"/>
+                <string key="stream:source" value="source_in_datacontext"/>
+                <list key="stream:point">
+                    <string key="stream:id" value="ptrid"/>
+                    <string key="stream:value" value="noneval"/>
+                    <date key="stream:timestamp" value="2023-04-28T17:18:31.8995662+02:00"/>
+                </list>
+            </list>
+        </list>
+        <list key="stream:datastream">
+        <string key="stream:name" value="name_in_datacontext"/>
+        <string key="stream:source" value="source_in_datacontext"/>
+        <string key="stream:point">
+            <string key="stream:id" value="Task.ExecutionType"/>
+            <string key="stream:value" value="None"/>
+            <date key="stream:timestamp" value="2023-04-28T17:18:31.8995662+02:00"/>
+            <string key="stream:source" value="IRB2600"/>
+            <string key="stream:meta">
+                <string key="type" value="ABB.Robotics.Controllers.RapidDomain.ExecutionType"/>
+                <list key="enumeration">
+                    <string key="None" value="None"/>
+                    <string key="Normal" value="Normal"/>
+                    <string key="Interrupt" value="Interrupt"/>
+                    <string key="ExternalInterrupt" value="ExternalInterrupt"/>
+                    <string key="UserRoutine" value="UserRoutine"/>
+                    <string key="EventRoutine" value="EventRoutine"/>
+                </list>
+            </string>
+        </string>
+        </list>
+    </list>
+  </trace>
+</log>

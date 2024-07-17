@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<log xmlns="http://www.xes-standard.org/" xes.version="2.0" xes.features="nested-attributes">
+  <string key="creator" value="cpee.org"/>
+  <extension name="Time" prefix="time" uri="http://www.xes-standard.org/time.xesext"/>
+  <extension name="Concept" prefix="concept" uri="http://www.xes-standard.org/concept.xesext"/>
+  <extension name="ID" prefix="id" uri="http://www.xes-standard.org/identity.xesext"/>
+  <extension name="Lifecycle" prefix="lifecycle" uri="http://www.xes-standard.org/lifecycle.xesext"/>
+  <extension name="CPEE" prefix="cpee" uri="http://cpee.org/cpee.xesext"/>
+  <extension name="stream" prefix="stream" uri="https://cpee.org/datastream/datastream.xesext"/>
+  <global scope="trace">
+    <string key="concept:name" value="__NOTSPECIFIED__"/>
+    <string key="cpee:name" value="__NOTSPECIFIED__"/>
+  </global>
+  <global scope="event">
+    <string key="concept:name" value="__NOTSPECIFIED__"/>
+    <string key="concept:instance" value="-1"/>
+    <string key="concept:endpoint" value="__NOTSPECIFIED__"/>
+    <string key="id:id" value="__NOTSPECIFIED__"/>
+    <string key="lifecycle:transition" value="complete"/>
+    <string key="cpee:lifecycle:transition" value="activity/calling"/>
+    <date key="time:timestamp" value="__NOTSPECIFIED__"/>
+  </global>
+  <trace>
+    <string key="trace_attr_key" value="trace_attr_val"/>
+  </trace>
+  <trace>
+    <string key="attr_key" value="attr_val"/>
+    <list key="stream:datastream">
+      <string key="stream:name" value="datastream1_name"/>
+      <string key="stream:source" value="datastream1_source"/>
+      <list key="stream:point">
+        <string key="stream:id" value="point1_id"/>
+        <string key="stream:value" value="point1_val"/>
+        <date key="stream:timestamp" value="2023-04-28T17:18:20.0747454+02:00"/>
+        <string key="stream:source" value="point1_source"/>
+        <list key="stream:meta">
+          <string key="type" value="System.String1"/>
+        </list>
+      </list>
+    </list>
+  </trace>
+  <trace>
+    <list key="stream:datastream">
+      <string key="stream:name" value="datastream2_name"/>
+      <string key="stream:source" value="datastream2_source"/>
+      <list key="stream:point">
+        <string key="stream:id" value="point2_id"/>
+        <string key="stream:value" value="point2_val"/>
+        <date key="stream:timestamp" value="2021-04-28T17:18:20.0747454+02:00"/>
+        <string key="stream:source" value="point2_source"/>
+        <list key="stream:meta">
+          <string key="type" value="System.String2"/>
+        </list>
+      </list>
+    </list>
+  </trace>
+  <trace>
+    <string key="concept:name" value="5671"/>
+    <string key="cpee:name" value="IRB2600 Door to Portal"/>
+    <string key="cpee:instance" value="0a7ab0ad-a8cd-47df-9625-7ea71e27ff98"/>
+    <event>
+      <string key="id:id" value="external"/>
+      <string key="cpee:activity" value="external"/>
+      <string key="cpee:instance" value="0a7ab0ad-a8cd-47df-9625-7ea71e27ff98"/>
+      <string key="lifecycle:transition" value="unknown"/>
+      <string key="cpee:lifecycle:transition" value="dataelements/change"/>
+      <list key="data">
+        <string key="name" value="includes"/>
+        <string key="value" value="https://centurio.work/artefacts/etm/IRB2600/raw/master/Generic/Turm_General.mod"/>
+        <string key="name" value="move"/>
+        <string key="value" value="https://centurio.work/artefacts/etm/IRB2600/raw/master/Generic/move_Door_to_Portal.mod"/>
+        <string key="name" value="x"/>
+        <string key="name" value="y"/>
+        <string key="name" value="z"/>
+        <string key="name" value="gripper"/>
+        <string key="value" value="Open"/>
+        <string key="name" value="urls"/>
+        <list key="value">
+          <string key="includes" value="includes"/>
+          <string key="move" value="move"/>
+        </list>
+        <string key="name" value="program"/>
+        <string key="value" value="__NOTSPECIFIED__"/>
+        <string key="name" value="vars"/>
+        <string key="value" value="__NOTSPECIFIED__"/>
+        <string key="name" value="check_var1"/>
+        <string key="value" value="PF_IRB2600.Controller.State"/>
+        <string key="name" value="check_var2"/>
+        <string key="value" value="PF_IRB2600.Controller.StateMachine"/>
+      </list>
+      <date key="time:timestamp" value="2023-04-28T17:17:37.811+02:00"/>
+    </event>
+  </trace>
+</log>

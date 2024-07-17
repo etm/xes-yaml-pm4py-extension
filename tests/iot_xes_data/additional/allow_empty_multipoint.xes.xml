@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<log xes.version="2.0" xes.features="nested-attributes" xmlns="http://www.xes-standard.org/">
+	<extension name="Time" prefix="time" uri="http://www.xes-standard.org/time.xesext" />
+	<extension name="Concept" prefix="concept" uri="http://www.xes-standard.org/concept.xesext" />
+	<extension name="ID" prefix="id" uri="http://www.xes-standard.org/identity.xesext" />
+	<extension name="Lifecycle" prefix="lifecycle" uri="http://www.xes-standard.org/lifecycle.xesext" />
+	<extension name="CPEE" prefix="cpee" uri="http://cpee.org/cpee.xesext" />
+	<extension name="stream" prefix="stream" uri="https://cpee.org/datastream/datastream.xesext" />
+	<string key="creator" value="cpee.org" />
+	<global scope="trace">
+		<string key="concept:name" value="__NOTSPECIFIED__" />
+		<string key="cpee:name" value="__NOTSPECIFIED__" />
+	</global>
+	<global scope="event">
+		<string key="concept:name" value="__NOTSPECIFIED__" />
+		<string key="concept:instance" value="-1" />
+		<string key="concept:endpoint" value="__NOTSPECIFIED__" />
+		<string key="id:id" value="__NOTSPECIFIED__" />
+		<string key="lifecycle:transition" value="complete" />
+		<string key="cpee:lifecycle:transition" value="activity/calling" />
+		<string key="time:timestamp" value="__NOTSPECIFIED__" />
+	</global>
+	<trace>
+		<event>
+			<list key="stream:datastream">
+				<list key="stream:multipoint"/>
+			</list>
+		</event>
+	</trace>
+</log>

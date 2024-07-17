@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<log xmlns="http://www.xes-standard.org/" xes.version="2.0" xes.features="nested-attributes">
+  <string key="creator" value="cpee.org"/>
+  <extension name="Time" prefix="time" uri="http://www.xes-standard.org/time.xesext"/>
+  <extension name="Concept" prefix="concept" uri="http://www.xes-standard.org/concept.xesext"/>
+  <extension name="ID" prefix="id" uri="http://www.xes-standard.org/identity.xesext"/>
+  <extension name="Lifecycle" prefix="lifecycle" uri="http://www.xes-standard.org/lifecycle.xesext"/>
+  <extension name="CPEE" prefix="cpee" uri="http://cpee.org/cpee.xesext"/>
+  <extension name="stream" prefix="stream" uri="https://cpee.org/datastream/datastream.xesext"/>
+  <global scope="trace">
+    <string key="concept:name" value="__NOTSPECIFIED__"/>
+    <string key="cpee:name" value="__NOTSPECIFIED__"/>
+  </global>
+  <global scope="event">
+    <string key="concept:name" value="__NOTSPECIFIED__"/>
+    <string key="concept:instance" value="-1"/>
+    <string key="concept:endpoint" value="__NOTSPECIFIED__"/>
+    <string key="id:id" value="__NOTSPECIFIED__"/>
+    <string key="lifecycle:transition" value="complete"/>
+    <string key="cpee:lifecycle:transition" value="activity/calling"/>
+    <date key="time:timestamp" value="__NOTSPECIFIED__"/>
+  </global>
+  <trace>
+    <string key="concept:name" value="5628"/>
+    <string key="cpee:name" value="Machining V2"/>
+    <string key="cpee:instance" value="602ddce1-ac34-4e9a-a8a5-90bf764a92db"/>
+    <event>
+      <string key="concept:name" value="Fetch"/>
+      <string key="concept:endpoint" value="https://centurio.work/data/dpnorth/queue/keyence/1682694566.2246451/push"/>
+      <string key="id:id" value="a1"/>
+      <string key="cpee:activity" value="a1"/>
+      <string key="cpee:activity_uuid" value="b9d7974c72629b92816ad1d7aeec0b3b"/>
+      <string key="cpee:instance" value="602ddce1-ac34-4e9a-a8a5-90bf764a92db"/>
+      <string key="lifecycle:transition" value="unknown"/>
+      <string key="cpee:lifecycle:transition" value="stream/data"/>
+      <list key="stream:datastream">
+        <string key="stream:name" value="keyence"/>
+        <string key="stream:source" value="machine"/>
+        <list key="stream:point">
+          <string key="stream:id" value="state"/>
+          <string key="stream:value" value="active"/>
+          <date key="stream:timestamp" value="2023-04-28T17:09:26.214+02:00"/>
+          <list key="stream:source">
+            <string key="proto" value="serial"/>
+            <string key="access" value="/dev/ttyUSB0 115200"/>
+          </list>
+          <list key="stream:meta"/>
+        </list>
+      </list>
+    </event>
+  </trace>
+</log>

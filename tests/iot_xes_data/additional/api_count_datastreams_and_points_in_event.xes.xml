@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<log xmlns="http://www.xes-standard.org/" xes.version="2.0" xes.features="nested-attributes">
+  <string key="creator" value="cpee.org"/>
+  <extension name="Time" prefix="time" uri="http://www.xes-standard.org/time.xesext"/>
+  <extension name="Concept" prefix="concept" uri="http://www.xes-standard.org/concept.xesext"/>
+  <extension name="ID" prefix="id" uri="http://www.xes-standard.org/identity.xesext"/>
+  <extension name="Lifecycle" prefix="lifecycle" uri="http://www.xes-standard.org/lifecycle.xesext"/>
+  <extension name="CPEE" prefix="cpee" uri="http://cpee.org/cpee.xesext"/>
+  <extension name="stream" prefix="stream" uri="https://cpee.org/datastream/datastream.xesext"/>
+  <global scope="trace">
+    <string key="concept:name" value="__NOTSPECIFIED__"/>
+    <string key="cpee:name" value="__NOTSPECIFIED__"/>
+  </global>
+  <global scope="event">
+    <string key="concept:name" value="__NOTSPECIFIED__"/>
+    <string key="concept:instance" value="-1"/>
+    <string key="concept:endpoint" value="__NOTSPECIFIED__"/>
+    <string key="id:id" value="__NOTSPECIFIED__"/>
+    <string key="lifecycle:transition" value="complete"/>
+    <string key="cpee:lifecycle:transition" value="activity/calling"/>
+    <date key="time:timestamp" value="__NOTSPECIFIED__"/>
+  </global>
+  <trace>
+    <event>
+    <list key="stream:datastream">
+      <string key="stream:name" value="datastream2_name"/>
+      <string key="stream:source" value="datastream2_source"/>
+      <list key="stream:point">
+        <string key="stream:id" value="point2_id"/>
+        <string key="stream:value" value="point2_val"/>
+        <date key="stream:timestamp" value="2021-04-28T17:18:20.0747454+02:00"/>
+        <string key="stream:source" value="point2_source"/>
+        <list key="stream:meta">
+          <string key="type" value="System.String2"/>
+        </list>
+      </list>
+      <list key="stream:point">
+        <string key="stream:id" value="point2_id"/>
+        <string key="stream:value" value="point2_val"/>
+        <date key="stream:timestamp" value="2021-04-28T17:18:20.0747454+02:00"/>
+        <string key="stream:source" value="point2_source"/>
+        <list key="stream:meta">
+          <string key="type" value="System.String2"/>
+        </list>
+      </list>
+    </list>
+    <list key="stream:datastream">
+      <string key="stream:name" value="datastream2_name"/>
+      <string key="stream:source" value="datastream2_source"/>
+      <list key="stream:point">
+        <string key="stream:id" value="point2_id"/>
+        <string key="stream:value" value="point2_val"/>
+        <date key="stream:timestamp" value="2021-04-28T17:18:20.0747454+02:00"/>
+        <string key="stream:source" value="point2_source"/>
+        <list key="stream:meta">
+          <string key="type" value="System.String2"/>
+        </list>
+      </list>
+    </list>
+    <list key="stream:datastream">
+      <string key="stream:name" value="datastream2_name"/>
+      <string key="stream:source" value="datastream2_source"/>
+      <list key="stream:point">
+        <string key="stream:id" value="point2_id"/>
+        <string key="stream:value" value="point2_val"/>
+        <date key="stream:timestamp" value="2021-04-28T17:18:20.0747454+02:00"/>
+        <string key="stream:source" value="point2_source"/>
+        <list key="stream:meta">
+          <string key="type" value="System.String2"/>
+        </list>
+      </list>
+      <list key="stream:point">
+        <string key="stream:id" value="point2_id"/>
+        <string key="stream:value" value="point2_val"/>
+        <date key="stream:timestamp" value="2021-04-28T17:18:20.0747454+02:00"/>
+        <string key="stream:source" value="point2_source"/>
+        <list key="stream:meta">
+          <string key="type" value="System.String2"/>
+        </list>
+      </list>
+      <list key="stream:point">
+        <string key="stream:id" value="point2_id"/>
+        <string key="stream:value" value="point2_val"/>
+        <date key="stream:timestamp" value="2021-04-28T17:18:20.0747454+02:00"/>
+        <string key="stream:source" value="point2_source"/>
+        <list key="stream:meta">
+          <string key="type" value="System.String2"/>
+        </list>
+      </list>
+      <list key="stream:point">
+        <string key="stream:id" value="point2_id"/>
+        <string key="stream:value" value="point2_val"/>
+        <date key="stream:timestamp" value="2021-04-28T17:18:20.0747454+02:00"/>
+        <string key="stream:source" value="point2_source"/>
+        <list key="stream:meta">
+          <string key="type" value="System.String2"/>
+        </list>
+      </list>
+    </list>
+    <list key="stream:datastream">
+    </list>
+    </event>
+  </trace>
+</log>

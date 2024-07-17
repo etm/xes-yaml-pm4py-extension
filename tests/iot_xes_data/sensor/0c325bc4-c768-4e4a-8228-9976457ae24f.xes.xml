@@ -1,0 +1,444 @@
+<?xml version="1.0"?>
+<log xmlns="http://www.xes-standard.org/" xes.version="2.0" xes.features="nested-attributes">
+  <string key="creator" value="cpee.org"/>
+  <extension name="Time" prefix="time" uri="http://www.xes-standard.org/time.xesext"/>
+  <extension name="Concept" prefix="concept" uri="http://www.xes-standard.org/concept.xesext"/>
+  <extension name="ID" prefix="id" uri="http://www.xes-standard.org/identity.xesext"/>
+  <extension name="Lifecycle" prefix="lifecycle" uri="http://www.xes-standard.org/lifecycle.xesext"/>
+  <extension name="CPEE" prefix="cpee" uri="http://cpee.org/cpee.xesext"/>
+  <extension name="stream" prefix="stream" uri="https://cpee.org/datastream/datastream.xesext"/>
+  <global scope="trace">
+    <string key="concept:name" value="__INVALID__"/>
+    <string key="cpee:name" value="__INVALID__"/>
+  </global>
+  <global scope="event">
+    <string key="concept:name" value="__INVALID__"/>
+    <string key="concept:instance" value="-1"/>
+    <string key="concept:endpoint" value=""/>
+    <string key="id:id" value=""/>
+    <string key="lifecycle:transition" value="complete"/>
+    <string key="cpee:lifecycle:transition" value="activity/calling"/>
+    <date key="time:timestamp" value=""/>
+  </global>
+  <trace>
+    <string key="concept:name" value="5747"/>
+    <string key="cpee:name" value="IRB2600 Door to Portal"/>
+    <string key="cpee:instance" value="0c325bc4-c768-4e4a-8228-9976457ae24f"/>
+    <event>
+      <string key="concept:name" value="Check State"/>
+      <string key="concept:endpoint" value="http://localhost:8017/server/Current"/>
+      <string key="id:id" value="a7"/>
+      <string key="cpee:activity" value="a7"/>
+      <string key="cpee:activity_uuid" value="62969cc0be68051e43af64e73cb391cb"/>
+      <date key="cpee:instance" value="0c325bc4-c768-4e4a-8228-9976457ae24f"/>
+      <string key="lifecycle:transition" value="unknown"/>
+      <string key="cpee:lifecycle:transition" value="stream/data"/>
+      <list key="stream:datastream">
+        <string key="stream:name" value="IRB2600"/>
+        <string key="stream:source" value="IRB2600"/>
+        <string key="stream:point">
+          <string key="stream:id" value="StateMachine"/>
+          <string key="stream:value" value="Active"/>
+          <date key="stream:timestamp" value="2023-04-28T17:30:50.7636639+02:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="System.String"/>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="LastTransition"/>
+          <string key="stream:value" value="FinishedToActive"/>
+          <date key="stream:timestamp" value="2023-04-28T17:30:50.7636639+02:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="System.String"/>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="LastTransitionAt"/>
+          <date key="stream:value" value="2023-04-28T17:30:50.7636639+02:00"/>
+          <date key="stream:timestamp" value="2023-04-28T17:30:50.7636639+02:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="System.DateTime"/>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="Rapid.ExecutionStatus"/>
+          <string key="stream:value" value="Running"/>
+          <date key="stream:timestamp" value="2023-04-28T17:30:50.7636639+02:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="ABB.Robotics.Controllers.RapidDomain.ExecutionStatus"/>
+            <list key="enumeration">
+              <string key="Unknown" value="Unknown"/>
+              <string key="Running" value="Running"/>
+              <string key="Stopped" value="Stopped"/>
+            </list>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="Task.Program.Module"/>
+          <string key="stream:value" value="OperationModule"/>
+          <date key="stream:timestamp" value="2023-04-28T17:30:02.0759784+02:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="System.String"/>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="Task.Program.Routine"/>
+          <string key="stream:value" value="Operation"/>
+          <date key="stream:timestamp" value="2023-04-28T17:30:02.0759784+02:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="System.String"/>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="Task.Program.Range"/>
+          <string key="stream:value" value="36"/>
+          <date key="stream:timestamp" value="2023-04-28T17:30:52.8384676+02:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="System.String"/>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="State"/>
+          <string key="stream:value" value="MotorsOn"/>
+          <date key="stream:timestamp" value="2023-04-28T17:15:45.6656742+02:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="ABB.Robotics.Controllers.ControllerState"/>
+            <list key="enumeration">
+              <string key="Init" value="Init"/>
+              <string key="MotorsOff" value="MotorsOff"/>
+              <string key="MotorsOn" value="MotorsOn"/>
+              <string key="GuardStop" value="GuardStop"/>
+              <string key="EmergencyStop" value="EmergencyStop"/>
+              <string key="EmergencyStopReset" value="EmergencyStopReset"/>
+              <string key="SystemFailure" value="SystemFailure"/>
+              <string key="Unknown" value="Unknown"/>
+            </list>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="OperationMode"/>
+          <string key="stream:value" value="Auto"/>
+          <date key="stream:timestamp" value="2023-04-28T16:04:13.4897354+02:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="ABB.Robotics.Controllers.ControllerOperatingMode"/>
+            <list key="enumeration">
+              <string key="Auto" value="Auto"/>
+              <string key="Init" value="Init"/>
+              <string key="ManualReducedSpeed" value="ManualReducedSpeed"/>
+              <string key="ManualFullSpeed" value="ManualFullSpeed"/>
+              <string key="AutoChange" value="AutoChange"/>
+              <string key="ManualFullSpeedChange" value="ManualFullSpeedChange"/>
+              <string key="NotApplicable" value="NotApplicable"/>
+            </list>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="BackupInProgress"/>
+          <date key="stream:timestamp" value="2023-03-17T08:53:10.2164524+01:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="System.Boolean"/>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="Connected"/>
+          <date key="stream:timestamp" value="2023-04-28T15:57:24.4258169+02:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="System.Boolean"/>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="Task.Cycle"/>
+          <string key="stream:value" value="Once"/>
+          <date key="stream:timestamp" value="2023-03-10T11:20:27.1599096+01:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="ABB.Robotics.Controllers.RapidDomain.ExecutionCycle"/>
+            <list key="enumeration">
+              <string key="None" value="None"/>
+              <string key="Once" value="Once"/>
+              <string key="Max" value="Max"/>
+              <string key="AsIs" value="AsIs"/>
+              <string key="Undefined" value="Undefined"/>
+              <string key="Forever" value="Forever"/>
+            </list>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="Task.Enabled"/>
+          <date key="stream:timestamp" value="2023-03-10T11:20:27.1599096+01:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="System.Boolean"/>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="Task.ExecutionType"/>
+          <string key="stream:value" value="Normal"/>
+          <date key="stream:timestamp" value="2023-04-28T17:30:51.0600645+02:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="ABB.Robotics.Controllers.RapidDomain.ExecutionType"/>
+            <list key="enumeration">
+              <string key="None" value="None"/>
+              <string key="Normal" value="Normal"/>
+              <string key="Interrupt" value="Interrupt"/>
+              <string key="ExternalInterrupt" value="ExternalInterrupt"/>
+              <string key="UserRoutine" value="UserRoutine"/>
+              <string key="EventRoutine" value="EventRoutine"/>
+            </list>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="Task.Motion"/>
+          <date key="stream:timestamp" value="2023-03-10T11:20:27.1755097+01:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="System.Boolean"/>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="Task.RemainingCycles"/>
+          <date key="stream:timestamp" value="2023-03-10T11:20:27.1755097+01:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="System.Int32"/>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="Task.TaskType"/>
+          <string key="stream:value" value="Normal"/>
+          <date key="stream:timestamp" value="2023-03-10T11:20:27.1755097+01:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="ABB.Robotics.Controllers.RapidDomain.TaskType"/>
+            <list key="enumeration">
+              <string key="Normal" value="Normal"/>
+              <string key="Static" value="Static"/>
+              <string key="SemiStatic" value="SemiStatic"/>
+            </list>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="Task.Type"/>
+          <string key="stream:value" value="Task"/>
+          <date key="stream:timestamp" value="2023-03-10T11:20:27.1755097+01:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="ABB.Robotics.Controllers.RapidDomain.SymbolTypes"/>
+            <list key="enumeration">
+              <string key="None" value="None"/>
+              <string key="Atomic" value="Atomic"/>
+              <string key="Record" value="Record"/>
+              <string key="Alias" value="Alias"/>
+              <string key="RecordComponent" value="RecordComponent"/>
+              <string key="Constant" value="Constant"/>
+              <string key="Variable" value="Variable"/>
+              <string key="Persistent" value="Persistent"/>
+              <string key="Data" value="Data"/>
+              <string key="Parameter" value="Parameter"/>
+              <string key="Label" value="Label"/>
+              <string key="Function" value="Function"/>
+              <string key="Procedure" value="Procedure"/>
+              <string key="Trap" value="Trap"/>
+              <string key="Routine" value="Routine"/>
+              <string key="Module" value="Module"/>
+              <string key="Task" value="Task"/>
+            </list>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="Task.ExecutionStatus"/>
+          <string key="stream:value" value="Running"/>
+          <date key="stream:timestamp" value="2023-04-28T17:30:50.8416641+02:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="ABB.Robotics.Controllers.RapidDomain.TaskExecutionStatus"/>
+            <list key="enumeration">
+              <string key="Ready" value="Ready"/>
+              <string key="Stopped" value="Stopped"/>
+              <string key="Running" value="Running"/>
+              <string key="UnInitiated" value="UnInitiated"/>
+              <string key="Unknown" value="Unknown"/>
+            </list>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="Task.Name"/>
+          <string key="stream:value" value="T_ROB1"/>
+          <date key="stream:timestamp" value="2023-03-10T11:20:27.1755097+01:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="System.String"/>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="RobJoint.Rax_1"/>
+          <date key="stream:timestamp" value="2023-04-28T17:30:54.0240697+02:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="System.Single"/>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="RobJoint.Rax_2"/>
+          <date key="stream:timestamp" value="2023-04-28T17:30:54.0240697+02:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="System.Single"/>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="RobJoint.Rax_3"/>
+          <date key="stream:timestamp" value="2023-04-28T17:30:54.0240697+02:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="System.Single"/>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="RobJoint.Rax_4"/>
+          <date key="stream:timestamp" value="2023-04-28T17:30:54.0240697+02:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="System.Single"/>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="RobJoint.Rax_5"/>
+          <date key="stream:timestamp" value="2023-04-28T17:30:54.0240697+02:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="System.Single"/>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="RobJoint.Rax_6"/>
+          <date key="stream:timestamp" value="2023-04-28T17:30:54.0240697+02:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="System.Single"/>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="Location.Column"/>
+          <date key="stream:timestamp" value="2023-04-28T17:30:54.0240697+02:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="System.Int32"/>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="Location.Row"/>
+          <date key="stream:timestamp" value="2023-04-28T17:30:54.0240697+02:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="System.Int32"/>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="Pos.X"/>
+          <date key="stream:timestamp" value="2023-04-28T17:30:53.8836694+02:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="System.Single"/>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="Pos.Y"/>
+          <date key="stream:timestamp" value="2023-04-28T17:30:53.8836694+02:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="System.Single"/>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="Pos.Z"/>
+          <date key="stream:timestamp" value="2023-04-28T17:30:53.8836694+02:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="System.Single"/>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="Rapid.Cycle"/>
+          <string key="stream:value" value="Once"/>
+          <date key="stream:timestamp" value="2023-03-10T11:23:19.3842121+01:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="ABB.Robotics.Controllers.RapidDomain.ExecutionCycle"/>
+            <list key="enumeration">
+              <string key="None" value="None"/>
+              <string key="Once" value="Once"/>
+              <string key="Max" value="Max"/>
+              <string key="AsIs" value="AsIs"/>
+              <string key="Undefined" value="Undefined"/>
+              <string key="Forever" value="Forever"/>
+            </list>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="Rapid.MaximumIdentifierLength"/>
+          <date key="stream:timestamp" value="2023-03-10T11:23:19.3842121+01:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="System.Int32"/>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="Rapid.RemainingCycles"/>
+          <date key="stream:timestamp" value="2023-03-10T11:23:19.3842121+01:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="System.Int32"/>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="Rapid.IsMaster"/>
+          <date key="stream:timestamp" value="2023-04-28T17:30:26.7864218+02:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="System.Boolean"/>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="Rapid.Name"/>
+          <string key="stream:value" value=""/>
+          <date key="stream:timestamp" value="2023-03-10T11:23:19.3842121+01:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="System.String"/>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="Task.Motion.Module"/>
+          <string key="stream:value" value="OperationModule"/>
+          <date key="stream:timestamp" value="2023-04-28T16:04:33.0521698+02:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="System.String"/>
+          </string>
+        </string>
+        <string key="stream:point">
+          <string key="stream:id" value="Task.Motion.Routine"/>
+          <string key="stream:value" value="Operation"/>
+          <date key="stream:timestamp" value="2023-04-28T16:04:33.0521698+02:00"/>
+          <string key="stream:source" value="IRB2600"/>
+          <string key="stream:meta">
+            <string key="type" value="System.String"/>
+          </string>
+        </string>
+      </list>
+    </event>
+  </trace>
+</log>
