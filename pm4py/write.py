@@ -89,7 +89,7 @@ def write_yaml(
         file_path.lower().endswith("xes.yaml")
         or file_path.lower().endswith("xes.yaml.gz")
     ):
-        file_path = file_path + "xes.yaml"
+        file_path = file_path + ".xes.yaml"
 
     parameters = {}
     for k, v in kwargs.items():
