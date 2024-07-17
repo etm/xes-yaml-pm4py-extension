@@ -25,6 +25,7 @@ class XESExtension(Enum):
     Concept = ('Concept', 'concept', 'http://www.xes-standard.org/concept.xesext')
     Cost = ('Cost', 'cost', 'http://www.xes-standard.org/cost.xesext')
     Identity = ('Identity', 'identity', 'http://www.xes-standard.org/identity.xesext')
+    ID = ('ID', 'id', 'http://www.xes-standard.org/identity.xesext')
     Lifecycle = ('Lifecycle', 'lifecycle', 'http://www.xes-standard.org/lifecycle.xesext')
     Micro = ('Micro', 'micro', 'http://www.xes-standard.org/micro.xesext')
     Organizational = ('Organizational', 'org', 'http://www.xes-standard.org/org.xesext')
@@ -33,6 +34,9 @@ class XESExtension(Enum):
     SoftwareEvent = ('Software Event', 'swevent', 'http://www.xes-standard.org/swevent.xesext')
     SoftwareTelemetry = ('Software Telemetry', 'swtelemetry', 'http://www.xes-standard.org/swtelemetry.xesext')
     Time = ('Time', 'time', 'http://www.xes-standard.org/time.xesext')
+    CPEE = ('CPEE', 'cpee', 'http://cpee.org/cpee.xesext')
+    Stream = ('stream', 'stream', 'https://cpee.org/datastream/datastream.xesext')
+
 
     def __init__(self, name, prefix, uri):
         self._name = name
