@@ -384,11 +384,12 @@ def read_ocel_sqlite(file_path: str, encoding: str = constants.DEFAULT_ENCODING)
     return sqlite_importer.apply(file_path, variant=sqlite_importer.Variants.PANDAS_IMPORTER, parameters={"encoding": encoding})
 
 
-def read_ocel2(file_path: str, encoding: str = constants.DEFAULT_ENCODING) -> OCEL:
+def read_ocel2(file_path: str, variant_str: Optional[str] = None, encoding: str = constants.DEFAULT_ENCODING) -> OCEL:
     """
     Reads an OCEL2.0 event log
 
     :param file_path: path to the OCEL2.0 event log
+    :param variant_str: (optional) specification of the importer variant to be used
     :param encoding: the encoding to be used (default: utf-8)
     :rtype: ``OCEL``
 
@@ -400,18 +401,20 @@ def read_ocel2(file_path: str, encoding: str = constants.DEFAULT_ENCODING) -> OC
     """
     if not os.path.exists(file_path):
         raise Exception("File does not exist")
-    if file_path.lower().endswith("sqlite"):
-        return read_ocel2_sqlite(file_path, encoding=encoding)
-    elif file_path.lower().endswith("xml") or file_path.lower().endswith("xmlocel"):
-        return read_ocel2_xml(file_path, encoding=encoding)
-    elif file_path.lower().endswith("json") or file_path.lower().endswith("jsonocel"):
-        return read_ocel2_json(file_path, encoding=encoding)
 
-def read_ocel2_json(file_path: str, encoding: str = constants.DEFAULT_ENCODING) -> OCEL:
+    if file_path.lower().endswith("sqlite"):
+        return read_ocel2_sqlite(file_path, variant_str=variant_str, encoding=encoding)
+    elif file_path.lower().endswith("xml") or file_path.lower().endswith("xmlocel"):
+        return read_ocel2_xml(file_path, variant_str=variant_str, encoding=encoding)
+    elif file_path.lower().endswith("json") or file_path.lower().endswith("jsonocel"):
+        return read_ocel2_json(file_path, variant_str=variant_str, encoding=encoding)
+
+def read_ocel2_json(file_path: str, variant_str: Optional[str] = None, encoding: str = constants.DEFAULT_ENCODING) -> OCEL:
     """
     Reads an OCEL2.0 event log from a JSON-OCEL(2) file
 
     :param file_path: path to the JSON file
+    :param variant_str: (optional) specification of the importer variant to be used
     :param encoding: the encoding to be used (default: utf-8)
     :rtype: ``OCEL``
 
@@ -425,14 +428,19 @@ def read_ocel2_json(file_path: str, encoding: str = constants.DEFAULT_ENCODING) 
         raise Exception("File does not exist")
 
     from pm4py.objects.ocel.importer.jsonocel import importer as jsonocel_importer
-    return jsonocel_importer.apply(file_path, variant=jsonocel_importer.Variants.OCEL20_STANDARD, parameters={"encoding": encoding})
+    variant = jsonocel_importer.Variants.OCEL20_STANDARD
+    if variant_str == "ocel20_rustxes":
+        variant = jsonocel_importer.Variants.OCEL20_RUSTXES
+
+    return jsonocel_importer.apply(file_path, variant=variant, parameters={"encoding": encoding})
 
 
-def read_ocel2_sqlite(file_path: str, encoding: str = constants.DEFAULT_ENCODING) -> OCEL:
+def read_ocel2_sqlite(file_path: str, variant_str: Optional[str] = None, encoding: str = constants.DEFAULT_ENCODING) -> OCEL:
     """
     Reads an OCEL2.0 event log from a SQLite database
 
     :param file_path: path to the OCEL2.0 database
+    :param variant_str: (optional) specification of the importer variant to be used
     :param encoding: the encoding to be used (default: utf-8)
     :rtype: ``OCEL``
 
@@ -449,11 +457,12 @@ def read_ocel2_sqlite(file_path: str, encoding: str = constants.DEFAULT_ENCODING
     return sqlite_importer.apply(file_path, variant=sqlite_importer.Variants.OCEL20, parameters={"encoding": encoding})
 
 
-def read_ocel2_xml(file_path: str, encoding: str = constants.DEFAULT_ENCODING) -> OCEL:
+def read_ocel2_xml(file_path: str, variant_str: Optional[str] = None, encoding: str = constants.DEFAULT_ENCODING) -> OCEL:
     """
     Reads an OCEL2.0 event log from an XML file
 
     :param file_path: path to the OCEL2.0 event log
+    :param variant_str: (optional) specification of the importer variant to be used
     :param encoding: the encoding to be used (default: utf-8)
     :rtype: ``OCEL``
 
@@ -467,4 +476,8 @@ def read_ocel2_xml(file_path: str, encoding: str = constants.DEFAULT_ENCODING) -
         raise Exception("File does not exist")
 
     from pm4py.objects.ocel.importer.xmlocel import importer as xml_importer
-    return xml_importer.apply(file_path, variant=xml_importer.Variants.OCEL20, parameters={"encoding": encoding})
+    variant = xml_importer.Variants.OCEL20
+    if variant_str == "ocel20_rustxes":
+        variant = xml_importer.Variants.OCEL20_RUSTXES
+
+    return xml_importer.apply(file_path, variant=variant, parameters={"encoding": encoding})

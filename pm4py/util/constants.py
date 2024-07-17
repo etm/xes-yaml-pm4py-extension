@@ -128,14 +128,16 @@ DEFAULT_BUSINESS_HOUR_SLOTS = [
 
 OPENAI_MAX_LEN = int(get_param_from_env("PM4PY_OPENAI_MAX_LEN", "10000"))
 OPENAI_API_KEY = get_param_from_env("PM4PY_OPENAI_API_KEY", None)
-OPENAI_DEFAULT_MODEL = get_param_from_env("PM4PY_OPENAI_DEFAULT_MODEL", "gpt-4-turbo-preview")
-OPENAI_DEFAULT_VISION_MODEL = get_param_from_env("PM4PY_OPENAI_DEFAULT_VISION_MODEL", "gpt-4-vision-preview")
+OPENAI_API_URL = get_param_from_env("PM4PY_OPENAI_API_URL", "https://api.openai.com/v1/")
+OPENAI_DEFAULT_MODEL = get_param_from_env("PM4PY_OPENAI_DEFAULT_MODEL", "gpt-4o")
+OPENAI_DEFAULT_VISION_MODEL = get_param_from_env("PM4PY_OPENAI_DEFAULT_VISION_MODEL", "gpt-4o")
 OPENAI_DEFAULT_STT_MODEL = get_param_from_env("PM4PY_OPENAI_DEFAULT_STT_MODEL", "whisper-1")
 OPENAI_DEFAULT_TTS_MODEL = get_param_from_env("PM4PY_OPENAI_DEFAULT_TTS_MODEL", "tts-1")
 OPENAI_DEFAULT_TTS_VOICE = get_param_from_env("PM4PY_OPENAI_DEFAULT_TTS_VOICE", "alloy")
 
 OPENAI_EXEC_RESULT = True if get_param_from_env("PM4PY_OPENAI_EXEC_RESULT", "False").lower() == "true" else False
 DEFAULT_GVIZ_VIEW = get_param_from_env("PM4PY_DEFAULT_GVIZ_VIEW", None)
+DEFAULT_ENABLE_VISUALIZATIONS_VIEW = get_param_from_env("PM4PY_DEFAULT_ENABLE_VISUALIZATIONS_VIEW", True)
 
 JQUERY_LINK = "https://code.jquery.com/jquery-3.6.3.min.js"
 GRAPHVIZJS_LINK = "https://github.com/mdaines/viz-js/releases/download/v1.8.2/viz.js"

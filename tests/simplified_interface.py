@@ -1,3 +1,4 @@
+import importlib.util
 import os
 import unittest
 
@@ -200,16 +201,18 @@ class SimplifiedInterfaceTest(unittest.TestCase):
         pm4py.get_case_arrival_average(df, case_id_key="CaseID", activity_key="Activity", timestamp_key="Timestamp")
 
     def test_serialization_log(self):
-        for legacy_obj in [True, False]:
-            log = pm4py.read_xes("input_data/running-example.xes", return_legacy_log_object=legacy_obj)
-            ser = pm4py.serialize(log)
-            log2 = pm4py.deserialize(ser)
+        if importlib.util.find_spec("pyarrow"):
+            for legacy_obj in [True, False]:
+                log = pm4py.read_xes("input_data/running-example.xes", return_legacy_log_object=legacy_obj)
+                ser = pm4py.serialize(log)
+                log2 = pm4py.deserialize(ser)
 
     def test_serialization_dataframe(self):
-        df = pandas_utils.read_csv("input_data/running-example.csv")
-        df = dataframe_utils.convert_timestamp_columns_in_df(df, timest_format=constants.DEFAULT_TIMESTAMP_PARSE_FORMAT, timest_columns=["time:timestamp"])
-        ser = pm4py.serialize(df)
-        df2 = pm4py.deserialize(ser)
+        if importlib.util.find_spec("pyarrow"):
+            df = pandas_utils.read_csv("input_data/running-example.csv")
+            df = dataframe_utils.convert_timestamp_columns_in_df(df, timest_format=constants.DEFAULT_TIMESTAMP_PARSE_FORMAT, timest_columns=["time:timestamp"])
+            ser = pm4py.serialize(df)
+            df2 = pm4py.deserialize(ser)
 
     def test_serialization_petri_net(self):
         net, im, fm = pm4py.read_pnml("input_data/running-example.pnml")
@@ -1051,17 +1054,21 @@ class SimplifiedInterfaceTest(unittest.TestCase):
         dataframe = pandas_utils.read_csv("input_data/running-example-transformed.csv")
         dataframe = dataframe_utils.convert_timestamp_columns_in_df(dataframe, timest_format=constants.DEFAULT_TIMESTAMP_PARSE_FORMAT, timest_columns=["Timestamp"])
         dataframe["CaseID"] = dataframe["CaseID"].astype("string")
-        target = os.path.join("test_output_data", "case_duration.svg")
-        pm4py.save_vis_case_duration_graph(dataframe, target, activity_key="Activity", case_id_key="CaseID", timestamp_key="Timestamp")
-        os.remove(target)
+
+        if importlib.util.find_spec("matplotlib"):
+            target = os.path.join("test_output_data", "case_duration.svg")
+            pm4py.save_vis_case_duration_graph(dataframe, target, activity_key="Activity", case_id_key="CaseID", timestamp_key="Timestamp")
+            os.remove(target)
 
     def test_vis_ev_distr_graph_df(self):
         dataframe = pandas_utils.read_csv("input_data/running-example-transformed.csv")
         dataframe = dataframe_utils.convert_timestamp_columns_in_df(dataframe, timest_format=constants.DEFAULT_TIMESTAMP_PARSE_FORMAT, timest_columns=["Timestamp"])
         dataframe["CaseID"] = dataframe["CaseID"].astype("string")
         target = os.path.join("test_output_data", "ev_distr_graph.svg")
-        pm4py.save_vis_events_distribution_graph(dataframe, target, activity_key="Activity", case_id_key="CaseID", timestamp_key="Timestamp")
-        os.remove(target)
+
+        if importlib.util.find_spec("matplotlib"):
+            pm4py.save_vis_events_distribution_graph(dataframe, target, activity_key="Activity", case_id_key="CaseID", timestamp_key="Timestamp")
+            os.remove(target)
 
     def test_ocel_object_graph(self):
         ocel = pm4py.read_ocel("input_data/ocel/example_log.jsonocel")

@@ -141,6 +141,7 @@ def __get_events_dataframe(df: pd.DataFrame, activity_key: str, timestamp_key: s
     Internal method to get the events dataframe out of a traditional log stored as Pandas dataframe
     """
     columns = {case_id_key}.union(set(x for x in df.columns if not x.startswith(case_attribute_prefix)))
+    columns = list(columns)
     df = df[columns]
     df = df.rename(columns={activity_key: ocel_constants.DEFAULT_EVENT_ACTIVITY,
                             timestamp_key: ocel_constants.DEFAULT_EVENT_TIMESTAMP,
@@ -155,6 +156,7 @@ def __get_objects_dataframe(df: pd.DataFrame, case_id_key: str, case_attribute_p
     Internal method to get the objects dataframe out of a traditional log stored as Pandas dataframe
     """
     columns = {x for x in df.columns if x.startswith(case_attribute_prefix)}
+    columns = list(columns)
     df = df[columns]
     df = df.rename(columns={case_id_key: ocel_constants.DEFAULT_OBJECT_ID})
     df = df.groupby(ocel_constants.DEFAULT_OBJECT_ID).first().reset_index()
@@ -325,6 +327,10 @@ def log_to_ocel_multiple_obj_types(log_obj: Union[EventLog, EventStream, pd.Data
         Separator between different objects in the same column
     additional_event_attributes
         Additional attributes to be considered as event attributes in the OCEL
+    additional_object_attributes
+        Additional attributes per object type to be considered as object attributes in the OCEL
+        (dictionary in which object types are associated to their attributes, i.e.,
+        {"order": ["quantity", "cost"], "invoice": ["date", "due date"]})
 
     Returns
     ----------------

@@ -18,8 +18,9 @@ pyparsing
 python-dateutil
 pytz
 scipy
+setuptools
 six
 sortedcontainers
-StringDist
 tqdm
 tzdata
+wheel

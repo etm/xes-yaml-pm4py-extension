@@ -26,6 +26,8 @@ from pm4py.util import exec_utils
 from pm4py.util import points_subset
 from pm4py.util import xes_constants, pandas_utils
 from pm4py.util.dt_parsing.variants import strpfromiso
+import numpy as np
+import random
 import traceback
 
 
@@ -50,6 +52,7 @@ class Parameters(Enum):
     CASE_INDEX_KEY = "case_index_key"
     USE_EXTREMES_TIMESTAMP = "use_extremes_timestamp"
     ADD_CASE_IDENTIFIER_COLUMN = "add_case_identifier_column"
+    DETERMINISTIC = "deterministic"
 
 
 def insert_partitioning(df, num_partitions, parameters=None):
@@ -218,10 +221,16 @@ def sample_dataframe(df, parameters=None):
     if parameters is None:
         parameters = {}
 
+    deterministic = exec_utils.get_param_value(Parameters.DETERMINISTIC, parameters, False)
     case_id_key = exec_utils.get_param_value(Parameters.CASE_ID_KEY, parameters, constants.CASE_CONCEPT_NAME)
     max_no_cases = exec_utils.get_param_value(Parameters.MAX_NO_CASES, parameters, 100)
 
     case_ids = pandas_utils.format_unique(df[case_id_key].unique())
+    case_ids = list(case_ids)
+
+    if not deterministic:
+        random.shuffle(case_ids)
+
     case_id_to_retain = points_subset.pick_chosen_points_list(min(max_no_cases, len(case_ids)), case_ids)
 
     return df[df[case_id_key].isin(case_id_to_retain)]
@@ -310,6 +319,7 @@ def select_number_column(df: pd.DataFrame, fea_df: pd.DataFrame, col: str,
     """
     df = df.dropna(subset=[col]).groupby(case_id_key).last().reset_index()[[case_id_key, col]]
     fea_df = fea_df.merge(df, on=[case_id_key], how="left", suffixes=('', '_y'))
+    fea_df[col] = fea_df[col].astype(np.float32)
     return fea_df
 
 
@@ -340,7 +350,7 @@ def select_string_column(df: pd.DataFrame, fea_df: pd.DataFrame, col: str,
             filt_df_cases = pandas_utils.format_unique(df[df[col] == val][case_id_key].unique())
             new_col = col + "_" + val.encode('ascii', errors='ignore').decode('ascii').replace(" ", "")
             fea_df[new_col] = fea_df[case_id_key].isin(filt_df_cases)
-            fea_df[new_col] = fea_df[new_col].astype("int")
+            fea_df[new_col] = fea_df[new_col].astype(np.float32)
     return fea_df
 
 

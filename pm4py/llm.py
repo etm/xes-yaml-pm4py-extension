@@ -27,13 +27,14 @@ from copy import copy
 from pm4py.objects.petri_net.obj import PetriNet, Marking
 
 
-def openai_query(prompt: str, api_key: Optional[str] = None, openai_model: Optional[str] = None, **kwargs) -> str:
+def openai_query(prompt: str, api_key: Optional[str] = None, openai_model: Optional[str] = None, api_url: Optional[str] = None, **kwargs) -> str:
     """
     Executes the provided prompt, obtaining the answer from the OpenAI APIs.
 
     :param prompt: prompt that should be executed
     :param api_key: OpenAI API key
     :param openai_model: OpenAI model to be used (default: gpt-3.5-turbo)
+    :param api_url: OpenAI API URL
     :rtype: ``str``
 
     .. code-block:: python3
@@ -44,6 +45,8 @@ def openai_query(prompt: str, api_key: Optional[str] = None, openai_model: Optio
         print(resp)
     """
     parameters = copy(kwargs) if kwargs is not None else {}
+    if api_url is not None:
+        parameters["api_url"] = api_url
     if api_key is not None:
         parameters["api_key"] = api_key
     if openai_model is not None:
@@ -418,3 +421,34 @@ def abstract_log_skeleton(log_skeleton, include_header: bool = True) -> str:
 
     from pm4py.algo.querying.llm.abstractions import logske_to_descr
     return logske_to_descr.apply(log_skeleton, parameters=parameters)
+
+
+def explain_visualization(vis_saver, *args, connector=openai_query, **kwargs) -> str:
+    """
+    Explains a process mining visualization by using LLMs (saving that first in a .png image, then providing the .png file to the
+    Large Language Model along with possibly a description of the visualization).
+
+    :param vis_saver: the visualizer (saving to disk) to be used
+    :param args: the mandatory arguments that should be provided to the visualization
+    :param connector: the connector method to the large language model
+    :param kwargs: optional parameters of the visualization or the connector (for example, the annotation of the visualization, or the API key)
+    :rtype: ``str``
+
+    .. code-block:: python3
+
+        import pm4py
+
+        log = pm4py.read_xes("tests/input_data/running-example.xes")
+        descr = pm4py.llm.explain_visualization(pm4py.save_vis_dotted_chart, log, api_key="sk-5HN", show_legend=False)
+        print(descr)
+    """
+    F = NamedTemporaryFile(suffix=".png")
+    image_path = F.name
+    F.close()
+
+    description = vis_saver(*args, image_path, **kwargs)
+
+    parameters = copy(kwargs) if kwargs is not None else {}
+    parameters["image_path"] = image_path
+
+    return connector("Could you explain the included process mining visualization?\n\n" + description, **parameters)
